@@ -1,0 +1,66 @@
+@media only screen and (min-width: 1028px){
+    body{
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    #verticalWrapper{
+        justify-content: space-around;
+        flex-direction: row;
+    }
+}
+
+@media only screen and (max-width: 1027px){
+    #verticalWrapper{
+        flex-grow: 1;
+    }
+
+    #horizontalWrapper{
+        flex-grow: 1;
+    }
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+}
+
+#verticalWrapper{
+    display: flex;
+}
+
+#horizontalWrapper{
+    background: cornflowerblue;
+    color: white;
+    padding: 30px;
+    border-radius:5px;
+    display: flex;
+    flex-direction:column;
+}
+
+#greeter{
+    padding: 20px;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+#fname{
+    margin: 10px;
+}
+
+#updateButton{
+    padding: 10px;
+    margin: 10px;
+}
+
+#note_greeter{
+    text-align: center;
+    padding: 10px;
+    text-decoration: underline;
+}
