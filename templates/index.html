@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<title>SWT Demo</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}" />
+<script>
+    function updateNote(){
+        var text = document.getElementById('fname').value;
+        console.log(text);
+        var http = new XMLHttpRequest();
+        var url = "/note";
+        http.open("POST",url,true);
+
+        http.onreadystatechange = function(){
+            if(http.readyState == 4 && http.status == 200){
+                console.log("OK update");
+            }
+        }
+        http.send(text);
+        document.getElementById("note").innerText = text;
+    }
+    
+    function getNote(){
+        var http = new XMLHttpRequest();
+        var url = "/note";
+        http.open("GET",url,true);
+        http.onreadystatechange = function(){
+            if(http.readyState == 4 && http.status == 200){
+                document.getElementById("note").innerText = http.responseText;
+            }
+        }
+        http.send(null);
+    }
+</script>
+<body>
+<div id="verticalWrapper">
+<div id="horizontalWrapper">
+<div id="greeter">Hello v2 from <div id="hostname">{{ name }}</div></div>
+<input type="text" id="fname">
+<button type="button" onclick="updateNote()" id="updateButton">update</button></br>
+</br>
+<div id="note_greeter">Note:</div>
+<div id="note">{{ note }}</div>
